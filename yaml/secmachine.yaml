@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: secmachine
+  name: secmachine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: secmachine
+  template:
+    metadata:
+      labels:
+        run: secmachine
+    spec:
+      containers:
+      - image: rtortori/secmachine:latest
+        name: secmachine
+        resources: {}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: secmachine
+  name: secmachine
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    run: secmachine
+  type: NodePort
+status:
+  loadBalancer: {}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %} remotexec - We are sorry :( {%
+endblock title %} {% block content %}
+<div class="container">
+  <div class="row text-center">
+    <div class="container">
+      <br /><br />
+      <p class="display-2">Something's wrong.</p>
+      <p style="font-size:20px;color:rgb(199, 14, 14);">
+        A problem occurred: <br>Did you upload both the policy and the clusters files? <br>
+        They both need to be present and have these suffixes: policies.json - clusters.json <br>
+        Example: myapp-policies.json, adm-clusters.json, etc.  
+      </p>
+      <ul>
+        {% for node in nodes %}
+        <p class="lead">{{ node }}</p>
+        {% endfor %}
+      </ul>
+      <a href="{{ url_for('index') }}" class="btn btn-success">Back Home</a>
+      <br /><br />
+    </div>
+  </div>
+</div>
+{% endblock content %}

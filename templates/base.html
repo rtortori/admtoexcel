@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{ url_for('static', filename='img/rmlab.png') }}"
+    />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css')}}"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS Entries-->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css')}}"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+
+    <title>
+      {% block title %} {% endblock title %}
+    </title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js')}}"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="{{ url_for('static', filename='js/popper.min.js')}}"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/bootstrap.min.js')}}"
+      crossorigin="anonymous"
+    ></script>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('index') }}"
+              ><i class="fas fa-home fa-lg"></i>
+              <span class="sr-only">(current)</span></a
+            >
+          </li>
+          
+          <li class="nav-item  dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdown01"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Links
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a
+                class="dropdown-item"
+                href="https://software.cisco.com"
+                target="_blank"
+                >Download Cisco Software</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://www.cisco.com/c/en/us/products/data-center-analytics/tetration-analytics/index.html"
+                target="_blank"
+                >Cisco Tetration</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://www.cisco.com/c/en/us/support/data-center-analytics/tetration-analytics/tsd-products-support-series-home.html"
+                target="_blank"
+                >Tetration Product Support</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://tetration-iso-generator.io"
+                target="_blank"
+                >Tetration Appliance ISO Generator</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <br />
+    <br />
+    {%block content%} {%endblock%}
+
+    <hr />
+
+    <footer class="blockquote-footer row">
+      <img
+        alt="RMLAB Logo"
+        src=" {{ url_for('static', filename='img/rmlab.png')}}"
+        width="42px"
+        height="34px"
+      />
+      <p>Made with love at Cisco  RMLAB | rtortori@cisco.com</p>
+    </footer>
+  </body>
+</html>
