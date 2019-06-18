@@ -5,7 +5,7 @@ metadata:
     run: secmachine
   name: secmachine
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       run: secmachine
